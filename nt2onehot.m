@@ -8,7 +8,7 @@ r_seq=upper(r_seq);
 r_seq=adjust_uncertain_nt(r_seq);
 
 fw_onehot=int8(zeros(L,4));
-for i=1:1:min(L,size(seq,2))
+parfor (i=1:1:min(L,size(seq,2)), 16)
     if seq(i)=='A'
         fw_onehot(i,:)=[0,0,0,1];
     elseif seq(i)=='C'
@@ -23,7 +23,7 @@ for i=1:1:min(L,size(seq,2))
 end
 
 bw_onehot=int8(zeros(L,4));
-for i=1:1:min(L,size(r_seq,2))
+parfor (i=1:1:min(L,size(r_seq,2)), 16)
     if r_seq(i)=='A'
         bw_onehot(i,:)=[0,0,0,1];
     elseif r_seq(i)=='C'
