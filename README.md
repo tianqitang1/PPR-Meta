@@ -1,5 +1,7 @@
 # PPR-Meta: a tool for identifying phages and plasmids from metagenomic fragments using deep learning
 
+## The original repo was not updated and did not implement parallelism for the most time-consuming step, this repo is trying to fix this issue
+
 * [Introduction](#introduction)
 * [Version](#version)
 * [Requirements](#requirements)
