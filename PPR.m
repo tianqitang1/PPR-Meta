@@ -96,7 +96,7 @@ if ~isempty(Group_A)
     predict=dlmread([pwd,'/',tmp,'predict.csv']);
     delete([pwd,'/',tmp,'predict.csv']);
     
-    for i=1:1:size(Group_A,1)
+    parfor (i=1:1:size(Group_A,1), 16)
         Group_A(i,1).phage_score=predict(i,1);
         Group_A(i,1).chromosome_score=predict(i,2);
         Group_A(i,1).plasmid_score=predict(i,3);
@@ -135,7 +135,7 @@ if ~isempty(Group_B)
     predict=dlmread([pwd,'/',tmp,'predict.csv']);
     delete([pwd,'/',tmp,'predict.csv']);
     
-    for i=1:1:size(Group_B,1)
+    parfor (i=1:1:size(Group_B,1), 16)
         Group_B(i,1).phage_score=predict(i,1);
         Group_B(i,1).chromosome_score=predict(i,2);
         Group_B(i,1).plasmid_score=predict(i,3);
@@ -174,7 +174,7 @@ if ~isempty(Group_C)
     predict=dlmread([pwd,'/',tmp,'predict.csv']);
     delete([pwd,'/',tmp,'predict.csv']);
     
-    for i=1:1:size(Group_C,1)
+    parfor (i=1:1:size(Group_C,1), 16)
         Group_C(i,1).phage_score=predict(i,1);
         Group_C(i,1).chromosome_score=predict(i,2);
         Group_C(i,1).plasmid_score=predict(i,3);
@@ -201,7 +201,7 @@ if ~isempty(Group_L)
     predict=dlmread('predict.csv');
     delete('predict.csv');
     
-    for i=1:1:size(Group_L,1)
+    parfor (i=1:1:size(Group_L,1), 16)
         Group_L(i,1).phage_score=predict(i,1);
         Group_L(i,1).chromosome_score=predict(i,2);
         Group_L(i,1).plasmid_score=predict(i,3);
