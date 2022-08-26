@@ -9,6 +9,14 @@ import sys
 import os
 from keras import regularizers
 from keras.models import load_model
+
+import tensorflow as tf
+config = tf.ConfigProto(intra_op_parallelism_threads=16, 
+                        inter_op_parallelism_threads=16, 
+                        allow_soft_placement=True)
+config.gpu_options.allow_growth=True
+sess = tf.Session(config=config)
+
 def main():
     
     argc = len(sys.argv)
