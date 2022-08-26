@@ -76,22 +76,22 @@ if ~isempty(Group_A)
     save([pwd,'/',tmp,'nt_onehot.mat'],'nt_onehot','-v7.3')
     clear nt_onehot
     
-    condon_onehot=zeros(64,798*size(Group_A,1),'int8');
+    codon_onehot=zeros(64,798*size(Group_A,1),'int8');
     for i=1:1:size(Group_A,1)
-        condon_onehot(:,(i-1)*798+1:i*798)=condon2onehot(Group_A(i).Sequence,400);
+        codon_onehot(:,(i-1)*798+1:i*798)=codon2onehot(Group_A(i).Sequence,400);
         Group_A(i,1).Sequence=[];
     end
-    save([pwd,'/',tmp,'condon_onehot.mat'],'condon_onehot','-v7.3')
-    clear condon_onehot
+    save([pwd,'/',tmp,'codon_onehot.mat'],'codon_onehot','-v7.3')
+    clear codon_onehot
     
     csvwrite([pwd,'/',tmp,'nt_length.csv'],800);
-    csvwrite([pwd,'/',tmp,'condon_length.csv'],798);
+    csvwrite([pwd,'/',tmp,'codon_length.csv'],798);
     
     cmd=['python ',pwd,'/predict.py ',pwd,'/model_a.h5 ',pwd,'/',tmp];unix(cmd);
     delete([pwd,'/',tmp,'nt_length.csv']);
-    delete([pwd,'/',tmp,'condon_length.csv']);
+    delete([pwd,'/',tmp,'codon_length.csv']);
     delete([pwd,'/',tmp,'nt_onehot.mat']);
-    delete([pwd,'/',tmp,'condon_onehot.mat']);
+    delete([pwd,'/',tmp,'codon_onehot.mat']);
         
     predict=dlmread([pwd,'/',tmp,'predict.csv']);
     delete([pwd,'/',tmp,'predict.csv']);
@@ -115,22 +115,22 @@ if ~isempty(Group_B)
     save([pwd,'/',tmp,'nt_onehot.mat'],'nt_onehot','-v7.3')
     clear nt_onehot
         
-    condon_onehot=zeros(64,1596*size(Group_B,1),'int8');
+    codon_onehot=zeros(64,1596*size(Group_B,1),'int8');
     for i=1:1:size(Group_B,1)
-        condon_onehot(:,(i-1)*1596+1:i*1596)=condon2onehot(Group_B(i).Sequence,800);
+        codon_onehot(:,(i-1)*1596+1:i*1596)=codon2onehot(Group_B(i).Sequence,800);
         Group_B(i,1).Sequence=[];
     end
-    save([pwd,'/',tmp,'condon_onehot.mat'],'condon_onehot','-v7.3')
-    clear condon_onehot
+    save([pwd,'/',tmp,'codon_onehot.mat'],'codon_onehot','-v7.3')
+    clear codon_onehot
         
     csvwrite([pwd,'/',tmp,'nt_length.csv'],1600);
-    csvwrite([pwd,'/',tmp,'condon_length.csv'],1596);
+    csvwrite([pwd,'/',tmp,'codon_length.csv'],1596);
         
     cmd=['python ',pwd,'/predict.py ',pwd,'/model_b.h5 ',pwd,'/',tmp];unix(cmd);
     delete([pwd,'/',tmp,'nt_length.csv']);
-    delete([pwd,'/',tmp,'condon_length.csv']);
+    delete([pwd,'/',tmp,'codon_length.csv']);
     delete([pwd,'/',tmp,'nt_onehot.mat']);
-    delete([pwd,'/',tmp,'condon_onehot.mat']);
+    delete([pwd,'/',tmp,'codon_onehot.mat']);
         
     predict=dlmread([pwd,'/',tmp,'predict.csv']);
     delete([pwd,'/',tmp,'predict.csv']);
@@ -154,22 +154,22 @@ if ~isempty(Group_C)
     save([pwd,'/',tmp,'nt_onehot.mat'],'nt_onehot','-v7.3')
     clear nt_onehot
     
-    condon_onehot=zeros(64,2400*size(Group_C,1),'int8');
+    codon_onehot=zeros(64,2400*size(Group_C,1),'int8');
     for i=1:1:size(Group_C,1)
-        condon_onehot(:,(i-1)*2400+1:i*2400)=condon2onehot(Group_C(i).Sequence,1200);
+        codon_onehot(:,(i-1)*2400+1:i*2400)=codon2onehot(Group_C(i).Sequence,1200);
         Group_C(i).Sequence=[];
     end
-    save([pwd,'/',tmp,'condon_onehot.mat'],'condon_onehot','-v7.3')
-    clear condon_onehot
+    save([pwd,'/',tmp,'codon_onehot.mat'],'codon_onehot','-v7.3')
+    clear codon_onehot
     
     csvwrite([pwd,'/',tmp,'nt_length.csv'],2400);
-    csvwrite([pwd,'/',tmp,'condon_length.csv'],2400);
+    csvwrite([pwd,'/',tmp,'codon_length.csv'],2400);
     
     cmd=['python ',pwd,'/predict.py ',pwd,'/model_c.h5 ',pwd,'/',tmp];unix(cmd);
     delete([pwd,'/',tmp,'nt_length.csv']);
-    delete([pwd,'/',tmp,'condon_length.csv']);
+    delete([pwd,'/',tmp,'codon_length.csv']);
     delete([pwd,'/',tmp,'nt_onehot.mat']);
-    delete([pwd,'/',tmp,'condon_onehot.mat']);
+    delete([pwd,'/',tmp,'codon_onehot.mat']);
     
     predict=dlmread([pwd,'/',tmp,'predict.csv']);
     delete([pwd,'/',tmp,'predict.csv']);
